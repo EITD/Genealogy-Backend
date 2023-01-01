@@ -1,2 +1,7 @@
-package com.genealogy;public interface MemberRepository {
+package com.genealogy;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MemberRepository extends JpaRepository<Member, String> {
+
 }
