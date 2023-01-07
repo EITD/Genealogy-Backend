@@ -18,7 +18,7 @@ public class MemberController {
         return memberRepository.findAll();
     }
 
-    record NewMemberRequest(String courtesy, Integer generation, String name, Integer parentId){}
+    record NewMemberRequest(String courtesy, Integer generation, String name, Integer parentId, String description){}
 
     @PostMapping
     public void addMember(@RequestBody NewMemberRequest request) {
@@ -27,6 +27,7 @@ public class MemberController {
         member.setGeneration(request.generation);
         member.setName(request.name);
         member.setParentId(request.parentId);
+        member.setDescription(request.description);
         memberRepository.save(member);
     }
 }

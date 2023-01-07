@@ -14,13 +14,15 @@ public class Member {
     private Integer generation;
     private String name;
     private Integer parentId;
+    private String description;
 
-    public Member(Integer id, String courtesy, Integer generation, String name, Integer parentId) {
+    public Member(Integer id, String courtesy, Integer generation, String name, Integer parentId, String description) {
         this.id = id;
         this.courtesy = courtesy;
         this.generation = generation;
         this.name = name;
         this.parentId = parentId;
+        this.description = description;
     }
 
     public Member() {
@@ -66,27 +68,36 @@ public class Member {
         this.parentId = parentId;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Member member = (Member) o;
-        return Objects.equals(id, member.id) && Objects.equals(courtesy, member.courtesy) && Objects.equals(generation, member.generation) && Objects.equals(name, member.name) && Objects.equals(parentId, member.parentId);
+        return Objects.equals(id, member.id) && Objects.equals(courtesy, member.courtesy) && Objects.equals(generation, member.generation) && Objects.equals(name, member.name) && Objects.equals(parentId, member.parentId) && Objects.equals(description, member.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, courtesy, generation, name, parentId);
+        return Objects.hash(id, courtesy, generation, name, parentId, description);
     }
 
     @Override
     public String toString() {
         return "Member{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", courtesy='" + courtesy + '\'' +
                 ", generation=" + generation +
                 ", name='" + name + '\'' +
-                ", parentId='" + parentId + '\'' +
+                ", parentId=" + parentId +
+                ", description='" + description + '\'' +
                 '}';
     }
 }
